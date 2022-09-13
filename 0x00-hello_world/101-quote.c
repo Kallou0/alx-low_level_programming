@@ -13,9 +13,8 @@ int main(void)
 		__asm__
 			("syscall"
 			: "=a" (ret)
-		       : "a" (syscall),																	
-		       "D" (fd),
-																						"S" (s),
-																						"d" (l));
+		        : "a" (syscall),														
+		        "D" (fd),
+			"S" (s),																	         "d" (l));
 		return (1);
 }
