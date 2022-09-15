@@ -1,46 +1,35 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "main.h"
+#include"main.h"
+
 /**
- * main - code  entry
- * Description: The “Fizz-Buzz test” is an interview question
- * designed to help filter
- * out the 99.5% of programming job
- * candidates who can’t seem to program
- * their way out of a wet paper bag.
- * Write a program that prints the numbers
- * from 1 to 100, followed by a new line.
- * But for multiples of three print Fizz instead
- * of the number and for the multiples
- * of five print Buzz. For numbers which are
- * multiples of both three and five print FizzBuzz.
- * Each number or word should be separated by a space
- * You are allowed to use the standard library
- * Return: 0
- */
+ * main - print numbers 1 - 100 followed by a new line
+ *       numbers that are multiples of 3 print Fizz
+ *       numbers that are multiples of 5 print Buzz
+ *       numbers that are multiples of 3 n 5 print FizzBuzz
+ *       each number and word to be separated by space
+ *
+ * Return: Always 0 (Success)
+*/
+
 int main(void)
 {
 	int num;
-	int end = 100;
-
-	for (num = 1; num <= end; num++)
+	
+	for (num = 1; num <= 100; ++num)
 	{
-		if (num % 3 == 0 && num % 5)
-		{
-			printf("FizzBuzz ");
-		} else if (num % 3 == 0)
-		{
-			printf("Fizz ");
-		} else if (num % 5 == 0)
-		{
-			printf("Buzz ");
-		} else
-		{
-			if (num == 100)
-				printf("%d", num);
-			printf("%d ", num);
-		}
+		if (num % 3 == 0 && !(num % 5 == 0))
+			printf("Fizz");
+		else if (num % 5 == 0 && !(num % 3 == 0))
+			printf("Buzz");
+		else if (num % 3 == 0 && num % 5 == 0)
+			printf("FizzBuzz");
+		else
+			printf("%d", num);
+
+		if (num != 100)
+			printf(" ");
+		else
+			printf("\n");
 	}
-	putchar('\n');
+
 	return (0);
 }
